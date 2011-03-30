@@ -2,13 +2,19 @@ package com.midi;
 
 import javax.sound.midi.MidiDevice;
 import javax.sound.midi.MidiSystem;
-import javax.sound.midi.MidiSystem.*;
 
 public class midiControl 
 {
-	public void main()
+	MidiDevice.Info midiDev[];
+	
+	public midiControl()
 	{
-		MidiDevice.Info midiDev[] = MidiSystem.getMidiDeviceInfo();
+		midiDev = MidiSystem.getMidiDeviceInfo();
+	}
+	
+	public void getMidiInfo()
+	{
+		//string desc;
 		
 		for (int md = 0; md < midiDev.length; md++)
 		{
@@ -18,6 +24,7 @@ public class midiControl
 			System.out.println(midiDev[md].getVersion());
 			System.out.println(midiDev[md].getVendor());
 		}
+		System.out.println("There are " + midiDev.length + " midi devices");
 	}
 
 }
